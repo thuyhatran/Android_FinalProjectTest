@@ -1,4 +1,4 @@
-package example.thuya.com.finalproject;
+package example.thuya.com.finalproject.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import example.thuya.com.finalproject.R;
 
 /**
  * Created by thuyha on 13/09/2016.

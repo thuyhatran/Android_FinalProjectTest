@@ -7,10 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import example.thuya.com.finalproject.ObjectListAdapter;
+import example.thuya.com.finalproject.adapters.ObjectListAdapter;
 import example.thuya.com.finalproject.R;
+import example.thuya.com.finalproject.model.ObjectList;
 
 /**
  * Created by thuyha on 05/10/2016.
@@ -28,15 +28,15 @@ public class AllObjectsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         //STEP 1
-         final String[] OBJECTS_LIST =
-                new String[] { "image1", "image2", "image3", "image4"};
+         /*final String[] OBJECTS_LIST =
+                new String[] { "image1", "image2", "image3", "image4"};*/
 
         // ArrayList<String> weekForecast = new ArrayList<String>(Arrays.asList(forecastArray));
 
         //STEP 2 : Adapter
         //ArrayAdapter adapter = new ArrayAdapter<String>(getActivity(), R.layout.my_textview_container, R.id.textview_item, forecastArray);
 
-        ArrayAdapter   adapter = new ObjectListAdapter(getActivity().getApplicationContext(),OBJECTS_LIST);
+        ArrayAdapter   adapter = new ObjectListAdapter(getActivity().getApplicationContext(), ObjectList.getAllObjectsList());
 
         //STEP 3
         View rootView = inflater.inflate(R.layout.fragment_all_objects, container, false);
