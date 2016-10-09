@@ -3,6 +3,7 @@ package example.thuya.com.finalproject;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -10,7 +11,7 @@ import android.widget.Toast;
 import example.thuya.com.finalproject.Fragments.AllObjectsFragment;
 import example.thuya.com.finalproject.Fragments.PickUpObjectsFragment;
 
-public class DisplayObjectActivity extends Activity {
+public class DisplayObjectActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

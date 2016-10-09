@@ -9,13 +9,12 @@ import com.google.android.gms.maps.model.LatLngBounds;
 
 public class Objects {
 
-    private String groundOverlayID;
     private LatLng latLng;
     private float width, height;
     private String name;
     private int drawable_id;
 
-    private static float width_height = 1600f;
+    private static float width_height = 2800f;
 
     public Objects() {
     }
@@ -41,14 +40,6 @@ public class Objects {
         this.drawable_id = drawable_id;
     }
 
-
-    public String getGroundOverlayID() {
-        return groundOverlayID;
-    }
-
-    public void setGroundOverlayID(String groundOverlayID) {
-        this.groundOverlayID = groundOverlayID;
-    }
 
     public LatLng getLatLng() {
         return latLng;

@@ -35,21 +35,7 @@ public class MapActivitiesMethods {
         mMap.addGroundOverlay(groundOverlayOptions);
     }
 
-    public static void addOverlayImage(GoogleMap mMap, LatLng latLng, float width, float height, int image_id) {
 
-        //Add an overlay
-        //Add overlay image
-        BitmapDescriptor image = BitmapDescriptorFactory.fromResource(image_id); // get an image.
-
-        // Adds a ground overlay with 50% transparency.
-        GroundOverlayOptions groundOverlayOptions = new GroundOverlayOptions();
-        GroundOverlay groundOverlay = mMap.addGroundOverlay(groundOverlayOptions
-                .image(image)
-                .position(latLng, width, height)
-                .transparency((float) 0.5));
-        groundOverlayOptions.clickable(true);
-        mMap.addGroundOverlay(groundOverlayOptions);
-    }
 
     public static void addOverlayImage(GoogleMap mMap, Objects object) {
 
@@ -57,7 +43,7 @@ public class MapActivitiesMethods {
         //Add overlay image
         BitmapDescriptor image = BitmapDescriptorFactory.fromResource(object.getDrawable_id()); // get an image.
 
-        // Adds a ground overlay with 50% transparency.
+        // Adds a ground overlay with 30% transparency.
         GroundOverlayOptions groundOverlayOptions = new GroundOverlayOptions();
         GroundOverlay groundOverlay = mMap.addGroundOverlay(groundOverlayOptions
                 .image(image)
@@ -66,11 +52,6 @@ public class MapActivitiesMethods {
         groundOverlayOptions.clickable(true);
         mMap.addGroundOverlay(groundOverlayOptions);
 
-        //Add groundOverlay value. In fact, it's not necessary for this app
-        int indexOb =  ObjectList.getExistedObjectsList().indexOf(object);
-        ObjectList.getExistedObjectsList().get(indexOb).setGroundOverlayID(groundOverlay.toString());
-
     }
-
 
 }

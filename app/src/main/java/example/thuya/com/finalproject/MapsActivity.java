@@ -72,7 +72,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     LatLng objectPlaces = ObjectList.getExistedObjectsList().get(0).getLatLng();
                     // mMap.addMarker(new MarkerOptions().position(montreal).title("Welcome to Montreal"));
-                    CameraUpdate objectPlacesLocation = CameraUpdateFactory.newLatLngZoom(objectPlaces, 12);
+                    CameraUpdate objectPlacesLocation = CameraUpdateFactory.newLatLngZoom(objectPlaces, 11);
                     mMap.animateCamera(objectPlacesLocation);
                 }
 
@@ -109,10 +109,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mMap = googleMap;
 
-        // Add a marker in my home town and move the camera
-        LatLng hometown = new LatLng(16.34, 107.5);
-        mMap.addMarker(new MarkerOptions().position(hometown).title("Missing you, Hue City"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(hometown));
+        if (ObjectList.getExistedObjectsList().size()==0){
+            // Add a marker in my home town and move the camera
+            LatLng hometown = new LatLng(16.34, 107.5);
+            mMap.addMarker(new MarkerOptions().position(hometown).title("Missing you, Hue City"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(hometown));
+        }else {
+            LatLng objectPlaces = ObjectList.getExistedObjectsList().get(0).getLatLng();
+            // mMap.addMarker(new MarkerOptions().position(montreal).title("Welcome to Montreal"));
+            CameraUpdate objectPlacesLocation = CameraUpdateFactory.newLatLngZoom(objectPlaces, 11);
+            mMap.animateCamera(objectPlacesLocation);
+        }
+
 
 
         //Initialize Google Play Services
@@ -130,18 +138,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
         //Add an Overlay Image
-        LatLng montreal = new LatLng(45.52, -73.56);
-        LatLngBounds bounds = new LatLngBounds(
-                //  new LatLng(-44, 113), new LatLng(-10, 154)
-                montreal, new LatLng(montreal.latitude + 0.02, montreal.longitude + 0.02)
-        ); // get a bounds
-
-
         for (Objects ob:ObjectList.getExistedObjectsList()){
            MapActivitiesMethods.addOverlayImage(mMap,ob);
-
         }
-
 
         //Listeners
         mMap.setOnGroundOverlayClickListener(this);
@@ -216,19 +215,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         Toast.makeText(this, "Image is picked off the map at: " + groundOverlay.getPosition().toString() ,
                 Toast.LENGTH_SHORT).show();
 
-
+        //Find object was clicked on the Object List
         Objects obj = ObjectList.findObjectByPosition(ObjectList.getExistedObjectsList(),groundOverlay.getPosition());
 
+        //Add Object to Pick up Object List
         ObjectList.addToPickuObjectsList(obj);
+        //Remove object from Existing Object List
         ObjectList.removeFromExistedObjectsList(obj);
 
         //groundOverlay.setImage(BitmapDescriptorFactory.fromResource(R.drawable.image2));
-        //groundOverlay.setVisible(false);
+        groundOverlay.setVisible(false);
         groundOverlay.remove();
-
-
-
-
 
     }
 }

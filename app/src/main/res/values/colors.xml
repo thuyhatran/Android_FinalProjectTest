@@ -7,4 +7,5 @@
     <color name="colorButtonBG">#a0ce87</color>
     <color name="colorButtonText">#6e156c</color>
     <color name="colorShadowText">#f58bf3</color>
+    <color name="colorWhite">#ffffff</color>
 </resources>
