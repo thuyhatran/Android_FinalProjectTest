@@ -12,14 +12,10 @@ import example.thuya.com.finalproject.Fragments.PickUpObjectsFragment;
 
 public class DisplayObjectActivity extends Activity {
 
-    static final String[] OBJECTS_LIST =
-            new String[] { "image1", "image2", "image3", "image4"};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_object);
-       //setListAdapter(new ObjectListAdapter(this, OBJECTS_LIST));
 
         Intent intent = getIntent();
         String clickedButton = intent.getStringExtra(MainActivity.ClickedButtonFromMain);

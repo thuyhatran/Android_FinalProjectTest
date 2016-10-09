@@ -27,15 +27,10 @@ public class AllObjectsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        //STEP 1
-         /*final String[] OBJECTS_LIST =
-                new String[] { "image1", "image2", "image3", "image4"};*/
-
-        // ArrayList<String> weekForecast = new ArrayList<String>(Arrays.asList(forecastArray));
+        //STEP 1: Data
+        //ObjectList.getAllObjectsList()
 
         //STEP 2 : Adapter
-        //ArrayAdapter adapter = new ArrayAdapter<String>(getActivity(), R.layout.my_textview_container, R.id.textview_item, forecastArray);
-
         ArrayAdapter   adapter = new ObjectListAdapter(getActivity().getApplicationContext(), ObjectList.getAllObjectsList());
 
         //STEP 3

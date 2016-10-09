@@ -8,22 +8,24 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
 import example.thuya.com.finalproject.R;
+import example.thuya.com.finalproject.model.Objects;
 
 /**
  * Created by thuyha on 13/09/2016.
  */
-public class ObjectListAdapter extends ArrayAdapter<String>{
+public class ObjectListAdapter extends ArrayAdapter<Objects>{
 
     private final Context context;
-    private final String[] values;
+    private final List<Objects> values;
 
-    public ObjectListAdapter(Context context, String[] values) {
+    public ObjectListAdapter(Context context, List<Objects>  values) {
         super(context, R.layout.image_text_view, values);
         this.context = context;
         this.values = values;
     }
-
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -31,24 +33,20 @@ public class ObjectListAdapter extends ArrayAdapter<String>{
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View rowView = inflater.inflate(R.layout.image_text_view, parent, false);
-        TextView textView = (TextView) rowView.findViewById(R.id.label);
+        TextView textView = (TextView) rowView.findViewById(R.id.name);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.logo);
-        textView.setText(values[position]);
 
-        // Change icon based on name
-        String s = values[position];
+        TextView textViewLatLng = (TextView) rowView.findViewById(R.id.latlng);
 
-        System.out.println(s);
+        //Set Text for Name textview
+        textView.setText(values.get(position).getName());
 
-        if (s.equals("image1")) {
-            imageView.setImageResource(R.drawable.image1);
-        } else if (s.equals("image2")) {
-            imageView.setImageResource(R.drawable.image2);
-        } else if (s.equals("image3")) {
-            imageView.setImageResource(R.drawable.image3);
-        } else {
-            imageView.setImageResource(R.drawable.image4);
-        }
+        // set icon for ImageView
+        Objects ob = values.get(position);
+        imageView.setImageResource(ob.getDrawable_id());
+
+        //Set Text for LatLng TextView
+        textViewLatLng.setText(ob.getLatLng().toString());
 
         return rowView;
     }

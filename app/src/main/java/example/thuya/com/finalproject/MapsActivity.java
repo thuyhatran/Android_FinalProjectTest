@@ -30,6 +30,9 @@ import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import example.thuya.com.finalproject.model.ObjectList;
+import example.thuya.com.finalproject.model.Objects;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
@@ -63,10 +66,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View view) {
 
-                LatLng objectPlaces = new LatLng(45.52, -73.56);
-               // mMap.addMarker(new MarkerOptions().position(montreal).title("Welcome to Montreal"));
-                CameraUpdate objectPlacesLocation = CameraUpdateFactory.newLatLngZoom(objectPlaces, 12);
-                mMap.animateCamera(objectPlacesLocation);
+                if (ObjectList.getExistedObjectsList().size()==0){
+                    Toast.makeText(getApplicationContext(),"No object found",Toast.LENGTH_LONG).show();
+                }else {
+
+                    LatLng objectPlaces = ObjectList.getExistedObjectsList().get(0).getLatLng();
+                    // mMap.addMarker(new MarkerOptions().position(montreal).title("Welcome to Montreal"));
+                    CameraUpdate objectPlacesLocation = CameraUpdateFactory.newLatLngZoom(objectPlaces, 12);
+                    mMap.animateCamera(objectPlacesLocation);
+                }
 
             }
         });
@@ -128,7 +136,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 montreal, new LatLng(montreal.latitude + 0.02, montreal.longitude + 0.02)
         ); // get a bounds
 
-        MapActivitiesMethods.addOverlayImage(mMap,bounds,R.drawable.image1);
+
+        for (Objects ob:ObjectList.getExistedObjectsList()){
+           MapActivitiesMethods.addOverlayImage(mMap,ob);
+
+        }
+
 
         //Listeners
         mMap.setOnGroundOverlayClickListener(this);
@@ -194,16 +207,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (mGoogleApiClient != null) {
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
         }
+
     }
 
     @Override
     public void onGroundOverlayClick(GroundOverlay groundOverlay) {
-        Toast.makeText(this, "Image is picked off the map at: " + groundOverlay.toString() ,
+
+        Toast.makeText(this, "Image is picked off the map at: " + groundOverlay.getPosition().toString() ,
                 Toast.LENGTH_SHORT).show();
+
+
+        Objects obj = ObjectList.findObjectByPosition(ObjectList.getExistedObjectsList(),groundOverlay.getPosition());
+
+        ObjectList.addToPickuObjectsList(obj);
+        ObjectList.removeFromExistedObjectsList(obj);
 
         //groundOverlay.setImage(BitmapDescriptorFactory.fromResource(R.drawable.image2));
         //groundOverlay.setVisible(false);
         groundOverlay.remove();
+
+
+
+
 
     }
 }

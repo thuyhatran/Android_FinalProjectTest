@@ -20,17 +20,12 @@ import example.thuya.com.finalproject.model.ObjectList;
 public class PickUpObjectsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup containner, Bundle saveInstanceState){
-        //STEP 1
-       /* final String[] PICKUP_OBJECTS_LIST =
-                new String[] { "image1", "image2"};*/
+        //STEP 1 : Data
 
         // Use Objects.getPickupObjectsList()
 
-        // ArrayList<String> weekForecast = new ArrayList<String>(Arrays.asList(forecastArray));
 
         //STEP 2 : Adapter
-        //ArrayAdapter adapter = new ArrayAdapter<String>(getActivity(), R.layout.my_textview_container, R.id.textview_item, forecastArray);
-
         ArrayAdapter adapter = new ObjectListAdapter(getActivity().getApplicationContext(), ObjectList.getPickupObjectsList());
 
         //STEP 3

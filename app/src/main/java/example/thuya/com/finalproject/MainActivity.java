@@ -11,6 +11,8 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import example.thuya.com.finalproject.model.ObjectList;
+
 public class MainActivity extends AppCompatActivity {
     final public static String ClickedButtonFromMain ="AllObjects";
     private Button b_PickUpObject, b_ListPickUpObjects, b_ListAllObjects;
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         b_ListPickUpObjects = (Button) findViewById(R.id.btt_pickedup_objects);
 
         b_ListAllObjects = (Button) findViewById(R.id.btt_all_objects);
+
+        //ObjectList.initObjectLists();
 
         b_PickUpObject.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
 
     }
