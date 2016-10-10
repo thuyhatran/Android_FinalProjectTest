@@ -20,9 +20,9 @@ public class ObjectList {
 
     private static List<Objects> ALL_OBJECTS_LIST = new ArrayList<>(Arrays.asList(
             new Objects(new LatLng(45.52, -73.56),Objects.getWidth_height(),"Red Flower", R.drawable.image1),
-            new Objects(new LatLng(45.50, -73.64),Objects.getWidth_height(),"Yellow Flower", R.drawable.image2),
-            new Objects(new LatLng(45.55, -73.57),Objects.getWidth_height(),"Leaf", R.drawable.image3),
-            new Objects(new LatLng(45.51, -73.48),Objects.getWidth_height(),"Apple", R.drawable.image4)
+            new Objects(new LatLng(44.55, -63.64),Objects.getWidth_height(),"Yellow Flower", R.drawable.image2),
+            new Objects(new LatLng(16.46, 107.58),Objects.getWidth_height(),"Leaf", R.drawable.image3),
+            new Objects(new LatLng(16.58, 107.89),Objects.getWidth_height(),"Apple", R.drawable.image4)
     ));
 
 
@@ -32,9 +32,9 @@ public class ObjectList {
 
    private static List<Objects> EXISTED_OBJECTS_LIST = new ArrayList<>(Arrays.asList(
            new Objects(new LatLng(45.52, -73.56),Objects.getWidth_height(),"Red Flower", R.drawable.image1),
-           new Objects(new LatLng(45.50, -73.64),Objects.getWidth_height(),"Yellow Flower", R.drawable.image2),
-           new Objects(new LatLng(45.55, -73.57),Objects.getWidth_height(),"Leaf", R.drawable.image3),
-           new Objects(new LatLng(45.51, -73.48),Objects.getWidth_height(),"Apple", R.drawable.image4)
+           new Objects(new LatLng(44.55, -63.64),Objects.getWidth_height(),"Yellow Flower", R.drawable.image2),
+           new Objects(new LatLng(16.46, 107.58),Objects.getWidth_height(),"Leaf", R.drawable.image3),
+           new Objects(new LatLng(16.58, 107.89),Objects.getWidth_height(),"Apple", R.drawable.image4)
     ));
 
 

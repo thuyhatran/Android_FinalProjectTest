@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:backgroundTintMode="screen"
-    android:background="@color/colorMainBG"
+    android:background="@color/colorButtonBG"
     tools:context="example.thuya.com.finalproject.MainActivity">
 
 
@@ -40,7 +40,7 @@
 
         android:id="@+id/btt_pickedup_objects"
         android:layout_below="@+id/btt_main_pickup"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="18dp"
         android:layout_marginRight="49dp"
         android:layout_marginLeft="49dp"
         android:background="@color/colorButtonBG"

@@ -14,7 +14,7 @@ public class Objects {
     private String name;
     private int drawable_id;
 
-    private static float width_height = 2800f;
+    private static float width_height = 29900f;
 
     public Objects() {
     }

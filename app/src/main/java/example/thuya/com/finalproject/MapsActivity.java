@@ -45,7 +45,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
 
-    private Button b_toHome,b_toObjects;
+    private Button b_toHome,b_toObjects, b_ZoomIn, b_ZoomOut;
 
 
     @Override
@@ -59,8 +59,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
         b_toHome = (Button) findViewById(R.id.b_reHome);
-
         b_toObjects = (Button) findViewById(R.id.b_toObject);
+        b_ZoomIn = (Button) findViewById(R.id.zoomin);
+        b_ZoomOut = (Button) findViewById(R.id.zoomout);
 
         b_toObjects.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +73,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     LatLng objectPlaces = ObjectList.getExistedObjectsList().get(0).getLatLng();
                     // mMap.addMarker(new MarkerOptions().position(montreal).title("Welcome to Montreal"));
-                    CameraUpdate objectPlacesLocation = CameraUpdateFactory.newLatLngZoom(objectPlaces, 11);
+                    CameraUpdate objectPlacesLocation = CameraUpdateFactory.newLatLngZoom(objectPlaces, 8);
                     mMap.animateCamera(objectPlacesLocation);
                 }
 
@@ -90,6 +91,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
+        b_ZoomIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mMap.animateCamera(CameraUpdateFactory.zoomIn());
+            }
+        });
+
+        b_ZoomOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mMap.animateCamera(CameraUpdateFactory.zoomOut());
+            }
+        });
 
 
     }
@@ -112,12 +126,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (ObjectList.getExistedObjectsList().size()==0){
             // Add a marker in my home town and move the camera
             LatLng hometown = new LatLng(16.34, 107.5);
-            mMap.addMarker(new MarkerOptions().position(hometown).title("Missing you, Hue City"));
+            mMap.addMarker(new MarkerOptions().position(hometown).title("Welcome to my hometown, Hue City"));
+            CameraUpdate hometownnPlace = CameraUpdateFactory.newLatLngZoom(hometown, 5);
+            mMap.animateCamera(hometownnPlace);
+
             mMap.moveCamera(CameraUpdateFactory.newLatLng(hometown));
         }else {
             LatLng objectPlaces = ObjectList.getExistedObjectsList().get(0).getLatLng();
             // mMap.addMarker(new MarkerOptions().position(montreal).title("Welcome to Montreal"));
-            CameraUpdate objectPlacesLocation = CameraUpdateFactory.newLatLngZoom(objectPlaces, 11);
+            CameraUpdate objectPlacesLocation = CameraUpdateFactory.newLatLngZoom(objectPlaces, 8);
             mMap.animateCamera(objectPlacesLocation);
         }
 
@@ -199,7 +216,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //move map camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(10));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(14));
 
 
         //stop location updates

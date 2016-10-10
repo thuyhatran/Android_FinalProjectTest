@@ -5,7 +5,7 @@ android:id = "@+id/myContainer"
 android:layout_width="match_parent"
 android:layout_height="match_parent"
 tools:context="example.thuya.com.finalproject.MapsActivity"
-android:background="@color/colorMainBG"
+android:background="@color/colorButtonBG"
 android:orientation="vertical">
 
 <LinearLayout
@@ -35,10 +35,37 @@ android:orientation="vertical">
         android:background="@color/colorButtonBG"
         android:textColor="@color/colorButtonText"
         android:shadowColor="@color/colorShadowText"
+        android:layout_marginRight="25dp"
         android:layout_marginTop="10px"
         android:layout_marginBottom="10px"
         />
 
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="+"
+        android:id="@+id/zoomin"
+        android:background="@color/colorButtonBG"
+        android:textColor="@color/colorWhite"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10px"
+        android:layout_marginBottom="10px"
+        android:textSize="24dp"
+        />
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:text="-"
+        android:id="@+id/zoomout"
+        android:background="@color/colorButtonBG"
+        android:textColor="@color/colorWhite"
+        android:layout_marginTop="10px"
+        android:layout_marginBottom="10px"
+        android:textSize="24dp"
+
+        />
 
 </LinearLayout>
 
