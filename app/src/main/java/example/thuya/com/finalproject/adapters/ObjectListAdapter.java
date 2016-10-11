@@ -33,9 +33,9 @@ public class ObjectListAdapter extends ArrayAdapter<Objects>{
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View rowView = inflater.inflate(R.layout.image_text_view, parent, false);
+
         TextView textView = (TextView) rowView.findViewById(R.id.name);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.logo);
-
         TextView textViewLatLng = (TextView) rowView.findViewById(R.id.latlng);
 
         //Set Text for Name textview

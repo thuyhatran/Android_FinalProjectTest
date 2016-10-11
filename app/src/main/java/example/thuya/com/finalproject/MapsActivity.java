@@ -128,9 +128,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             LatLng hometown = new LatLng(16.34, 107.5);
             mMap.addMarker(new MarkerOptions().position(hometown).title("Welcome to my hometown, Hue City"));
             CameraUpdate hometownnPlace = CameraUpdateFactory.newLatLngZoom(hometown, 5);
-            mMap.animateCamera(hometownnPlace);
+            mMap.moveCamera(hometownnPlace);
 
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(hometown));
         }else {
             LatLng objectPlaces = ObjectList.getExistedObjectsList().get(0).getLatLng();
             // mMap.addMarker(new MarkerOptions().position(montreal).title("Welcome to Montreal"));
@@ -154,7 +153,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
 
 
-        //Add an Overlay Image
+        //Add  Overlay Images
         for (Objects ob:ObjectList.getExistedObjectsList()){
            MapActivitiesMethods.addOverlayImage(mMap,ob);
         }
@@ -240,9 +239,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //Remove object from Existing Object List
         ObjectList.removeFromExistedObjectsList(obj);
 
-        //groundOverlay.setImage(BitmapDescriptorFactory.fromResource(R.drawable.image2));
+        //remove object
         groundOverlay.setVisible(false);
         groundOverlay.remove();
 
+        //Reset Map: Clear and re-Add  Overlay Images
+        mMap.clear();
+        for (Objects ob:ObjectList.getExistedObjectsList()){
+            MapActivitiesMethods.addOverlayImage(mMap,ob);
+        }
     }
+
 }

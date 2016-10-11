@@ -38,12 +38,13 @@ public class LoginActivity extends Activity {
                 String name = inputUserName.getText().toString();
                 String password = inputPassword.getText().toString();
 
+                //If name and password are correct, then play game
                 if (isExistedUser("name=? and password=?",new String[] { name, password })){
                     Toast.makeText(getApplicationContext(), "Enjoy Game!",Toast.LENGTH_LONG).show();
 
                    Intent intent = new Intent(LoginActivity.this,MainActivity.class);
                     startActivity(intent);
-                    // finish();
+                    finish();
 
                 }else {
                     Toast.makeText(getApplicationContext(), "Invalid user or password!",Toast.LENGTH_LONG).show();
@@ -57,7 +58,7 @@ public class LoginActivity extends Activity {
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
                 startActivity(intent);
-                //finish();
+                finish();
             }
         });
 

@@ -50,15 +50,15 @@ public class RegisterActivity extends AppCompatActivity {
 
                // if (isExistedUser("name=? and password=?",new String[] { name, password })){
                 if (isExistedUser("name=? ",new String[] { name })){
-                    Toast.makeText(getApplicationContext(), "User already esisted",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "User already existed",Toast.LENGTH_LONG).show();
                 }else {
-                    Toast.makeText(getApplicationContext(), "New User Add. Enjoy game!",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "New User Added. Enjoy game!",Toast.LENGTH_LONG).show();
                     //Create a new user
                     addUser(name, email, password);
 
                     Intent intent = new Intent(RegisterActivity.this,MainActivity.class);
                     startActivity(intent);
-                   // finish();
+                    //finish();
 
                 }
 

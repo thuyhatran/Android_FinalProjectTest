@@ -51,12 +51,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,DisplayObjectActivity.class);
-               intent.putExtra(ClickedButtonFromMain,"PickUpObjects");
+                intent.putExtra(ClickedButtonFromMain,"PickUpObjects");
                 startActivity(intent);
             }
         });
-
-
-
     }
+
+
+
 }
