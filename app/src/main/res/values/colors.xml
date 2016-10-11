@@ -8,4 +8,8 @@
     <color name="colorButtonText">#6e156c</color>
     <color name="colorShadowText">#f58bf3</color>
     <color name="colorWhite">#ffffff</color>
+    <color name="bg_login">#b434df</color>
+    <color name="text_login">#0000ff</color>
+    <color name="text_hint_login">#a9a9a9</color>
+
 </resources>

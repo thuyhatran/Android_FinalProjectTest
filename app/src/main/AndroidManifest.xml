@@ -37,8 +37,8 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main">
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,7 +46,19 @@
             </intent-filter>
         </activity>
         <activity android:name=".MapsActivity" />
-        <activity android:name=".DisplayObjectActivity"></activity>
+        <activity android:name=".DisplayObjectActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"></activity>
+
+        <activity android:name=".RegisterActivity"></activity>
+
+        <provider
+            android:name=".SQLitePart.LoginProvider"
+            android:authorities="example.thuya.com.finalproject.SQLitePart.LoginProvider"
+            android:exported="false" />
+
+
     </application>
 
 </manifest>
